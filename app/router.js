@@ -12,4 +12,13 @@ module.exports = function(app) {
     .put(controllers.user.update)
     .delete(controllers.user.remove);
 
+  // Chirp
+  app.route('/chirps')
+    .get(controllers.chirp.list)
+    .post(controllers.chirp.add);
+  app.route('/chirps/:chirp_id')
+    .get(controllers.chirp.load)
+    .put(controllers.chirp.update)
+    .delete(controllers.chirp.remove);
+
 };

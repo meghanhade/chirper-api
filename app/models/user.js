@@ -11,6 +11,17 @@ module.exports = function(sequelize, DataTypes) {
     },
     about_me: DataTypes.TEXT
   }, {
+  // New code:
+    classMethods: {
+      associate: function(models) {
+        models.user.hasMany(models.chirp, { 
+          foreignKey: { 
+            as: 'user_id',
+            allowNull: false 
+          }
+        });
+      }
+    },
     underscored: true,
     underscoredAll: true,
     createdAt: 'joined_at'
