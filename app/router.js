@@ -21,4 +21,13 @@ module.exports = function(app) {
     .put(controllers.chirp.update)
     .delete(controllers.chirp.remove);
 
+  // Follow
+  app.route('/follows')
+    .get(controllers.follow.list)
+    .post(controllers.follow.add);
+  app.route('/follows/:follow_id')
+    .get(controllers.follow.load)
+    .put(controllers.follow.update)
+    .delete(controllers.follow.remove);
+
 };
