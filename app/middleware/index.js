@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 
 var accessControls = require('./access-controls');
 var loadDatabase   = require('./sequelize');
+var userFromToken  = require('./user-from-token'); // <-- ADD THIS!
 
 
 module.exports = function(app) {
@@ -19,5 +20,9 @@ module.exports = function(app) {
 
   // Load the models and their relations
   app.use(loadDatabase);
+
+  // Load the user from the token
+  app.use(require('express-bearer-token')());
+  app.use(userFromToken); // <-- ...AND THIS!
 
 };

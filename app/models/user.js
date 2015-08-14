@@ -9,7 +9,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true
     },
-    about_me: DataTypes.TEXT
+    about_me: DataTypes.TEXT,
+    hash: {
+      type: DataTypes.STRING,
+      roles: {
+        admin: true
+      }
+    }
   }, {
   // New code:
     classMethods: {

@@ -30,4 +30,10 @@ module.exports = function(app) {
     .put(controllers.follow.update)
     .delete(controllers.follow.remove);
 
+  // Signup
+  app.post('/signup', actions.signup);
+
+  // Login
+  app.post('/token', actions.login);
+
 };
