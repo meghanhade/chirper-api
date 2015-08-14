@@ -13,6 +13,12 @@ module.exports = function(req, res, render) {
     }
   }
 
+  if (req.query.username) {
+    findQuery = {
+      where: { username: req.query.username }
+    }
+  }
+
   req.models.user
   .findAll(findQuery)
   .then(function(users) {
